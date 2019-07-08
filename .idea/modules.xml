@@ -2,6 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
+      <module fileurl="file://$PROJECT_DIR$/aop/aop.iml" filepath="$PROJECT_DIR$/aop/aop.iml" />
       <module fileurl="file://$PROJECT_DIR$/cache/cache.iml" filepath="$PROJECT_DIR$/cache/cache.iml" />
       <module fileurl="file://$PROJECT_DIR$/springboots.iml" filepath="$PROJECT_DIR$/springboots.iml" />
     </modules>
