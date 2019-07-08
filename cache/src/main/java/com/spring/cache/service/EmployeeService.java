@@ -7,7 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.cache.annotation.*;
 import org.springframework.stereotype.Service;
 
-//@CacheConfig(cacheNames="emp"/*,cacheManager = "employeeCacheManager"*/) //抽取缓存的公共配置
+//@CacheConfig(cacheNames="emp"/)*,cacheManager = "employeeCacheManager"*/) //抽取缓存的公共配置
 @Service
 public class EmployeeService {
 
@@ -85,7 +85,7 @@ public class EmployeeService {
      * @return
      *
      */
-    @Cacheable(value = {"emp"},key = "1"/*,keyGenerator = "myKeyGenerator",condition = "#a0>1",unless = "#a0==2"*/)
+    @Cacheable(value = {"emp"}/**key = "root.methodName+'['+#id+']'"**//*,keyGenerator = "myKeyGenerator",condition = "#a0>1",unless = "#a0==2"*/)
     public Employee getEmp(Integer id){
         System.out.println("查询"+id+"号员工");
         Employee emp = employeeMapper.getEmpById(id);
@@ -114,7 +114,7 @@ public class EmployeeService {
      *      为什么是没更新前的？【1号员工没有在缓存中更新】
      *
      */
-    @CachePut(/*value = "emp",*/key = "#result.id")
+    @CachePut(value = "emp",key = "#result.id"/*key = "#result.id"*/)
     public Employee updateEmp(Employee employee){
         System.out.println("updateEmp:"+employee);
         employeeMapper.updateEmp(employee);
