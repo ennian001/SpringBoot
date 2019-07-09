@@ -16,4 +16,8 @@ public class LockServiceTest {
     public void lockTestMethod1() {
         lockService.lockTestMethod1();
     }
+    @Test
+    public void lockTestMethod2() {
+        lockService.lockTestMethod1();
+    }
 }
