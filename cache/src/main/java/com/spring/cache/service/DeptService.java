@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.cache.Cache;
 //import org.springframework.data.redis.cache.RedisCacheManager;
+import org.springframework.data.redis.cache.RedisCacheManager;
 import org.springframework.stereotype.Service;
 
 
@@ -16,9 +17,9 @@ public class DeptService {
     @Autowired
     DepartmentMapper departmentMapper;
 
-
-//    @Autowired
-//    RedisCacheManager deptCacheManager;
+    @Qualifier("deptCacheManager")  //因为有多个，需要指定哪一个deptCacheManager
+    @Autowired
+    RedisCacheManager deptCacheManager;
 
 
     /**
