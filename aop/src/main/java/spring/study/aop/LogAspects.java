@@ -16,7 +16,7 @@ public class LogAspects {
     public void pointCut(){};
 
     //@Before在目标方法之前切入；切入点表达式（指定在哪个方法切入）
-    @Before("pointCut()")
+    @Before("execution(public int spring.study.service.MathCalculator.*(..))")
     public void logStart(JoinPoint joinPoint){
         Object[] args = joinPoint.getArgs();
         System.out.println(""+joinPoint.getSignature().getName()+"运行。。。@Before:参数列表是：{"+ Arrays.asList(args)+"}");
