@@ -10,12 +10,9 @@ public @interface SynLock {
      *  锁的key
      */
     String synKey();
-
     /**
      * 默认锁的时间
      * @return
      */
     long seconds() default 300;
-
-
 }

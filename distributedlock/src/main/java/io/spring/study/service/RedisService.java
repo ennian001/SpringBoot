@@ -16,7 +16,7 @@ public class RedisService {
     @Autowired
     StringRedisTemplate stringRedisTemplate;
 
-    public boolean lock(String key , long ex){
+    public boolean lock(final String key , final long ex){
         Boolean b = (Boolean) stringRedisTemplate.execute(new RedisCallback<Boolean>() {
             @Override
             public Boolean doInRedis(RedisConnection connection) throws DataAccessException {
@@ -34,12 +34,8 @@ public class RedisService {
         return b;
     }
 
-    boolean get(String key , long ex){
+    String get(String key , long ex){
         String s = stringRedisTemplate.opsForValue().get(key);
-        if (s!=null){
-            return false;
-        }else {
-            return lock(key,ex);
-        }
+        return s;
     }
 }
