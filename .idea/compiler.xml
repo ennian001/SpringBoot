@@ -8,11 +8,13 @@
         <outputRelativeToContentRoot value="true" />
         <module name="cache" />
         <module name="aop" />
+        <module name="distributedlock" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
       <module name="aop" target="1.8" />
       <module name="cache" target="1.8" />
+      <module name="distributedlock" target="1.8" />
       <module name="springboots" target="1.8" />
     </bytecodeTargetLevel>
   </component>

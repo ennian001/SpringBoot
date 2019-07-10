@@ -7,7 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.cache.annotation.*;
 import org.springframework.stereotype.Service;
 
-//@CacheConfig(cacheNames="emp"/)*,cacheManager = "employeeCacheManager"*/) //抽取缓存的公共配置
+@CacheConfig(/*cacheNames = "emp",*/cacheManager = "employeeCacheManager") //抽取缓存的公共配置
 @Service
 public class EmployeeService {
 
