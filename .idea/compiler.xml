@@ -6,15 +6,17 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
-        <module name="cache" />
         <module name="aop" />
+        <module name="cache" />
         <module name="distributedlock" />
+        <module name="postgrelsql" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
       <module name="aop" target="1.8" />
       <module name="cache" target="1.8" />
       <module name="distributedlock" target="1.8" />
+      <module name="postgrelsql" target="1.8" />
       <module name="springboots" target="1.8" />
     </bytecodeTargetLevel>
   </component>
