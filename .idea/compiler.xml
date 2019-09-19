@@ -10,6 +10,7 @@
         <module name="cache" />
         <module name="distributedlock" />
         <module name="postgrelsql" />
+        <module name="springbootoptimize" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
@@ -17,6 +18,7 @@
       <module name="cache" target="1.8" />
       <module name="distributedlock" target="1.8" />
       <module name="postgrelsql" target="1.8" />
+      <module name="springbootoptimize" target="1.8" />
       <module name="springboots" target="1.8" />
     </bytecodeTargetLevel>
   </component>

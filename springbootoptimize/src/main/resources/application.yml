@@ -1,0 +1,33 @@
+spring:
+  application:
+    name: springboot
+server:
+  port: 9087
+#undertow
+  undertow:
+    #设置IO线程数，主要执行非阻塞的任务，它们会负责多个连接，设置默认每个CPU核心有一个线程。
+    #不要设置过大，如果过大，启动项目会报错：打开文件数目过多
+    io-threads: 4
+    #阻塞任务线程数，当执行类似Servlet请求阻塞IO操作，Undertow会从这个线程池中取的线程。
+    #它的值设置取决于系统线程执行任务的阻塞系shu，默认值是IO线程数乘以*8
+    worker-threads: 8
+    #是否分配直接内存--NIO直接分配对堆外内存
+    #取决于JVM最大可用内存大小，小于64Mb默认为false，其余为true
+    direct-buffers: true
+    #每块buffer空间大小
+    buffer-size: 1024
+  ssl:
+    key-store: server.keystore
+    key-alias: undertow
+    enabled: true
+    key-store-password: 123456
+    key-store-type: JKS
+info:
+  app.name: study-microservicecloud
+  company.name: www.studyspringcloud.com
+  build.artifactId: $project.artifactId$
+  build.version: $project.version$
+#这些功能涉及敏感信息，被监控端需要安全认证才能访问对应的监控点，添加配置可规避此异常：
+management:
+  security:
+    enabled: false
