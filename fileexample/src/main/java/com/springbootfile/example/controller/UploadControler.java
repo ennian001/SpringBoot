@@ -31,7 +31,7 @@ public class UploadControler {
         String originalFilename = uploadFile.getOriginalFilename();
         //获取输入流
         InputStream inputStream = uploadFile.getInputStream();
-        FileOutputStream os = new FileOutputStream("/upload/"+originalFilename);
+        FileOutputStream os = new FileOutputStream("/opt/images/java/"+originalFilename);
 
         //写文件
         int i ;
