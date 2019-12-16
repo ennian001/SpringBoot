@@ -10,6 +10,7 @@
         <module>postgrelsql</module>
         <module>admin</module>
         <module>springbootoptimize</module>
+        <module>esjavarest</module>
     </modules>
     <parent>
         <groupId>org.springframework.boot</groupId>
