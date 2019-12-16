@@ -14,28 +14,29 @@ import java.io.InputStream;
 public class UploadControler {
 
     @GetMapping
-    public String index(){
+    public String index() {
         return "login";
     }
 
     /**
      * 文件上传
-     * @param desc 文件描述
+     *
+     * @param desc       文件描述
      * @param uploadFile 文件
      * @return
      */
     @PostMapping("/upload")
-    public String upload(@RequestParam("desc")String desc , @RequestParam("uploadFile")MultipartFile uploadFile) throws IOException {
+    public String upload(@RequestParam("desc") String desc, @RequestParam("uploadFile") MultipartFile uploadFile) throws IOException {
 
         //获取上传文件的名字
         String originalFilename = uploadFile.getOriginalFilename();
         //获取输入流
         InputStream inputStream = uploadFile.getInputStream();
-        FileOutputStream os = new FileOutputStream("/opt/images/java/"+originalFilename);
+        FileOutputStream os = new FileOutputStream("/opt/images/java/" + originalFilename);
 
         //写文件
-        int i ;
-        while ((i=inputStream.read())!=-1){
+        int i;
+        while ((i = inputStream.read()) != -1) {
             os.write(i);
         }
 
