@@ -8,6 +8,7 @@
         <module>aop</module>
         <module>distributedlock</module>
         <module>postgrelsql</module>
+        <module>admin</module>
         <module>springbootoptimize</module>
     </modules>
     <parent>
