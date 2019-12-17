@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>秒杀</title>
+</head>
+<body>
+ <h1> 一元秒杀 </h1>
+
+ <form id="msform" action="doseckill" method="post">
+     <input type="hidden" id="prodid" name="prodid" value="0101">
+     <input type="button"  id="miaosha_btn" name="seckill_btn" value="秒杀点我"/>
+ </form>
+</body>
+<script  type="text/javascript" th:src="@{/js/jquery-3.1.0.js}"></script>
+<script  type="text/javascript">
+    $(function(){
+        $("#miaosha_btn").click(function(){
+            var url=$("#msform").attr("action");
+            $.post(url,$("#msform").serialize(),function(data){
+                if(data=="false"){
+                    alert("抢光了" );
+                    $("#miaosha_btn").attr("disabled",true);
+                }
+            } );
+        })
+    })
+</script>
+</html>
