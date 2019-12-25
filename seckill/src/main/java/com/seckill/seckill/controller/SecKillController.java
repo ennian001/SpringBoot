@@ -1,11 +1,13 @@
 package com.seckill.seckill.controller;
 
 
+import com.seckill.seckill.util.JedisPoolUtil;
 import lombok.extern.java.Log;
 import org.springframework.stereotype.Controller;
 import org.springframework.util.CollectionUtils;
 import org.springframework.web.bind.annotation.*;
 import redis.clients.jedis.Jedis;
+import redis.clients.jedis.JedisPool;
 import redis.clients.jedis.Transaction;
 
 import java.util.List;
@@ -33,8 +35,11 @@ public class SecKillController {
         //随机生成客户编号
         String uid = new Random().nextInt()+"";
 
-        Jedis jedis = new Jedis("47.105.157.113");
-            // qtKey 用与商品计数
+//        Jedis jedis = new Jedis("47.105.157.113");
+        //连接池
+        JedisPool jedisPoolInstance = JedisPoolUtil.getJedisPoolInstance();
+        Jedis jedis = jedisPoolInstance.getResource();
+        // qtKey 用与商品计数
             String qtkey = "sk"+prodid+":qt";
             //用户的key， 用于判断用户是否抢过
             String userKey = "sk"+prodid+":usr";
@@ -69,7 +74,10 @@ public class SecKillController {
 //        jedis.sadd(userKey,uid);
 //        //减库存
 //        jedis.decr(qtkey);
+        jedis.close();
         return "true";
     }
+
+
 
 }
