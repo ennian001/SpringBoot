@@ -18,6 +18,13 @@ public class UploadControler {
         return "login";
     }
 
+    @GetMapping("/down")
+    public String down() {
+        return "download";
+    }
+
+
+
     /**
      * 文件上传
      *

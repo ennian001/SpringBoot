@@ -3,6 +3,7 @@ package com.springbootfile.example.controller;
 import com.springbootfile.example.util.CSVUtils;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -22,7 +23,7 @@ public class DownLoadController {
 
 
     //下载csv文件
-    @GetMapping("/CSV")
+    @PostMapping("/CSV")
     public String downLoadCSV(HttpServletResponse response) throws IOException {
         String [] head = {"用户名","用户Id","交易金额"};
         String fileName = "测试下载";
