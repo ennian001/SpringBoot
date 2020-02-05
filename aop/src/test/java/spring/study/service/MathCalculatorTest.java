@@ -1,28 +1,30 @@
 package spring.study.service;
 
-import org.junit.Test;
-import org.junit.runner.RunWith;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.test.context.SpringBootTest;
-import org.springframework.test.context.junit4.SpringRunner;
 
-import static org.junit.Assert.*;
-@SpringBootTest
-@RunWith(SpringRunner.class)
 public class MathCalculatorTest {
 
-    @Autowired
-    MathCalculator mathCalculator;
-
-    @Test
-    public void div() {
-        int div = mathCalculator.div(2, 1);
-        System.out.println(div);
+    public static void main(String[] args) throws InterruptedException {
+        test test = new test();
+        Thread thread1 = new Thread(test);
+        thread1.setName("a");
+        thread1.start();
+        Thread thread2 = new Thread(test);
+        thread2.setName("b");
+        thread1.join();
+        thread2.start();
     }
+}
+class test implements Runnable{
 
-    @Test
-    public void div0() {
-        int div = mathCalculator.div(2, 0);
-        System.out.println(div);
+    @Override
+        public void run() {
+        if ("a".equals(Thread.currentThread().getName())) {
+            try {
+                Thread.sleep(1000);
+            } catch (InterruptedException e) {
+
+            }
+        }
+        System.out.println("A"+Thread.currentThread().getName());
     }
 }
