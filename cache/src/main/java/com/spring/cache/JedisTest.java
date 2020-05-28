@@ -13,7 +13,7 @@ import java.util.Set;
 
 public class JedisTest {
 
-    static Jedis jedis = new Jedis("192.168.116.128", 6379);
+    static Jedis jedis = new Jedis("47.105.157.113", 6379);
 
     final static String KEY = "company";
     final static String MEMBER_JUEJIN = "juejin";
@@ -22,7 +22,8 @@ public class JedisTest {
     final static String MEMBER_JINGDONG = "jd";
     final static String MEMBER_XIAOMI = "xiaomi";
     public static void main(String[] args) {
-        geoRadiusByMember();
+//        geoRadiusByMember();
+        getKey();
     }
 
     //获取附近的公司
@@ -72,8 +73,8 @@ public class JedisTest {
     }
 
     private static void getKey() {
-        //        Jedis jedis = new Jedis("47.105.157.113", 6379);
-        Jedis jedis = new Jedis("192.168.116.128", 6379);
+                Jedis jedis = new Jedis("47.105.157.113", 6379);
+//        Jedis jedis = new Jedis("192.168.116.128", 6379);
         System.out.println("connection is OK ==========>"+jedis.ping());
         //key
         Set<String> keys = jedis.keys("*");
@@ -95,5 +96,10 @@ public class JedisTest {
             System.out.println(element);
         }
         System.out.println("-----------------------------------------");
+
     }
+
+
+
+
 }
