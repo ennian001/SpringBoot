@@ -1,0 +1,29 @@
+server:
+  port: 9092
+spring:
+  application:
+    name: order-service01
+
+# apollo 相关配置
+## app.id 与Apollo配置中心的AppId一致
+app:
+  id: order-service01
+apollo:
+  ## Apollo 中的Eureka注册中心地址
+  meta: http://localhost:8080
+  ##cluster: 指定Apollo集群，相同集群实例使用对应集群的配置
+  cacheDir: /opt/data/apollo‐config #配置缓存目录，网络不可用时任然可提供配置服务
+
+
+## 指定环境
+env : DEV
+
+# 自定义配置
+name : order-service-dev
+mysql:
+  host: localhost
+  port: 3306
+  username: root
+  password: 123456
+rocketmq:
+  name-server: 2312
